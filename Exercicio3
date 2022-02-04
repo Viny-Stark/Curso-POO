@@ -1,0 +1,51 @@
+package Aplicação;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Locale.setDefault(Locale.US);
+		Scanner sc= new Scanner(System.in);
+		Estudante est =new Estudante();
+		
+		System.out.print("Aluno: ");
+		est.Aluno=sc.nextLine();
+		System.out.print("Nota 1: ");
+		est.nota1=sc.nextDouble();
+		System.out.print("Nota 2: ");
+		est.nota2=sc.nextDouble();
+		System.out.print("Nota 3: ");
+		est.nota3=sc.nextDouble();
+		
+		System.out.printf("Nota Final =  %.2f%n" , est.notaFinal());
+		if(est.notaFinal()< 60) {
+			System.out.printf("Aluno Reprovado " + " Falta = %.2f%n" , est.reprovado() );
+			}
+		if(est.notaFinal() >= 60) {
+			System.out.println("Aluno Aprovado");
+		}
+		
+		sc.close();
+	}
+
+}
+package Aplicação;
+
+public class Estudante {
+	
+	public String Aluno;
+	public double nota1;
+	public double nota2;
+	public double nota3;
+	
+	public double notaFinal() {
+		return nota1+nota2+nota3;
+	}
+	
+	public double reprovado() {
+		return 60-(nota1+nota2+nota3);
+	}
+}
