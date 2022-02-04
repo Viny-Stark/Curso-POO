@@ -1,0 +1,52 @@
+package Exercicio2;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Locale.setDefault(Locale.US);
+		Scanner sc=new Scanner(System.in);
+		Employee ep = new Employee();
+		
+		System.out.print("Name: ");
+		ep.name=sc.nextLine();
+		System.out.print("Gross Salary: ");
+		ep.grossSalary=sc.nextDouble();
+		System.out.print("Tax: ");
+		ep.tax=sc.nextDouble();
+		System.out.println("Employee: " + ep.name + ", " + ep.netSalary());
+		System.out.println("Wich percentage to increase salary? ");
+		double porcentage=sc.nextDouble();
+		ep.icreasySalary(porcentage);
+		System.out.println();
+		System.out.println("Updated data: " + ep);
+		
+		sc.close();
+
+	}
+
+}
+package Exercicio2;
+
+public class Employee {
+	
+	public String name;
+	public	double grossSalary;
+	public double tax;
+	
+	
+	public double netSalary() {
+		return grossSalary - tax;
+	}
+
+	public void icreasySalary (double porcentage ) {
+		grossSalary += grossSalary * porcentage / 100.0;
+		
+	}
+	public String toString() {
+		return name + ", $ " + String.format("%.2f", netSalary());
+		}
+}
