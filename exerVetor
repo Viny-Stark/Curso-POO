@@ -1,0 +1,69 @@
+package Aplicacao;
+import java.util.Scanner;
+import Utilitarios.Hospedes;
+
+public class Main {
+  public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		Hospedes[] vect = new Hospedes[10];
+		int n=sc.nextInt();
+		
+		for(int i=1;i<=n;i++) {
+			System.out.println();
+			System.out.println("Hospede #" + i + ":");
+			System.out.print("Nome: ");
+			sc.nextLine();
+			String nome = sc.nextLine();
+			System.out.print("Email: ");
+			String email = sc.nextLine();
+			System.out.print("Quarto: ");
+			int quarto = sc.nextInt();
+			vect[quarto] = new Hospedes(nome, email, quarto);
+			}
+    System.out.println();
+		System.out.println("Quartos ocupados: " );
+		
+		for(int i=0; i<10; i++) {
+			if (vect[i] != null) {
+				System.out.println("Quarto: "+ i + ": " + vect[i]);
+			}
+			}
+		sc.close();
+    }
+    }
+    package Utilitarios;
+
+public class Hospedes {
+
+	private String nome;
+	private String email;
+	private double cpf;
+	
+	public Hospedes(String nome, String email, double cpf) {
+		this.nome = nome;
+		this.email = email;
+		this.cpf = cpf;
+	}
+  public String getNome() {
+		return nome;
+	}
+  public void setNome(String nome) {
+		this.nome = nome;
+	}
+  public String getEmail() {
+		return email;
+	}
+  public void setEmail(String email) {
+		this.email = email;
+	}
+  public double getCpf() {
+		return cpf;
+	}
+  public void setCpf(double cpf) {
+		this.cpf = cpf;
+	}
+	public String toString() {
+		return nome + ", " + email + ", " ;
+	}
+	}
